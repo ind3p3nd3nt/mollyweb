@@ -1,8 +1,10 @@
 # mollyweb
 Clone of the Official Molly Eskam Web Portal - https://www.mollyeskam.net
 An Apache2 installation on Debian is preferred.
-
-# installation
+# installation method #1
+git clone https://github.com/independentcod/mollyweb.git
+sh mollyweb/bootstrap.sh
+# installation method #2
 # 1. install Apache2
 sudo apt install apache2 -y
 # 2. Download the release file.
