@@ -1,4 +1,5 @@
 #!/bin/bash
+# You may as well visit https://github.com/independentcod/mollyweb 
 # Apache2 on Debian, Ubuntu or Kali is recommended, throws some config error with HTTPd on CentOS.
 
 echo ***Install required files***;
@@ -6,7 +7,7 @@ if [ -f "/usr/bin/yum" ]; then
     sudo yum install epel-release alien mod_ssl httpd-y&
 fi
 if [ -f "/usr/bin/apt" ]; then
-    sudo yum install apache2 -y&
+    sudo apt install apache2 -y&
 fi
 echo ***Make Apache directories***;
 sudo mkdir /var/www/html;
@@ -22,23 +23,25 @@ cd mollywebsite;
 echo ***make directory for the lounge live chat plugin***;
 sudo mkdir /etc/thelounge;
 echo ***move necesary files from temp thelounge directory to program directory***;
-sudo mv -f thelounge/* /etc/thelounge/;
-echo ***convert thelounge .deb to .rpm for centos***;
+sudo cp -r thelounge/* /etc/thelounge/;
 if [ -f "/usr/bin/yum" ]; then
+	echo ***convert thelounge .deb to .rpm for CentOS***;
     sudo alien -r thelounge_4.1.0_all.deb
+    echo ***install thelounge .rpm***;
     sudo rpm -i thelounge_4.1.0_all.noarch.rpm
 fi
 if [ -f "/usr/bin/apt" ]; then
+	echo ***install thelounge for Debian***;
     sudo dpkg -i thelounge_4.1.0_all.deb
 fi
 echo ***move temp directory to site directory***;
-sudo mv -f ./* /var/www/html/;
+sudo cp -r ./* /var/www/html/;
 echo ***move the config file into the correct OS directory***;
 if [ -f "/usr/bin/yum" ]; then
-sudo mv -f /var/www/html/httpd.conf /etc/httpd/conf/;
+sudo cp -r /var/www/html/httpd.conf /etc/httpd/conf/;
 fi
 if [ -f "/usr/bin/apt" ]; then
-sudo mv -f /var/www/html/httpd.conf /etc/apache2/apache2.conf;
+sudo cp -r /var/www/html/httpd.conf /etc/apache2/apache2.conf;
 fi
 echo ***Give permissions***;
 sudo chmod +rwx /etc/thelounge -R;
