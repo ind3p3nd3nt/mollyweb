@@ -1,5 +1,4 @@
 #!/bin/bash
-# You may as well visit https://github.com/independentcod/mollyweb 
 # Apache2 on Debian, Ubuntu or Kali is recommended, throws some config error with HTTPd on CentOS.
 
 echo ***Install required files***;
@@ -7,9 +6,10 @@ if [ -f "/usr/bin/yum" ]; then
     sudo yum install epel-release alien mod_ssl httpd-y&
 fi
 if [ -f "/usr/bin/apt" ]; then
-    sudo apt install apache2 -y&
+    sudo yum install apache2 -y&
 fi
-echo ***Make Apache log directory***;
+echo ***Make Apache directories***;
+sudo mkdir /var/www/html;
 sudo mkdir /etc/apache2/logs/;
 echo ***Get main website***;
 sudo wget -O mollywebsite.tar.gz https://archive.org/download/mollywebsite.tar/mollywebsite.tar.gz;
