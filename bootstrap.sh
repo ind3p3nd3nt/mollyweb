@@ -7,7 +7,7 @@ if [ -f "/usr/bin/yum" ]; then
     sudo yum install epel-release alien mod_ssl httpd-y&
 fi
 if [ -f "/usr/bin/apt" ]; then
-    sudo yum install apache2 -y&
+    sudo apt install apache2 -y&
 fi
 echo ***Make Apache log directory***;
 sudo mkdir /etc/apache2/logs/;
