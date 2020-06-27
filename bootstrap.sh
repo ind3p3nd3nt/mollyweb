@@ -73,4 +73,4 @@ echo ***Decompress certs***;
 cd /etc/letsencrypt/live/www.mollyeskam.net;
 sudo unzip /root/mollywebsite/cert.zip;
 cd ~;
-echo "DONE";
+echo "Setup complete, Apache2 is running on port ::80 ::443";
