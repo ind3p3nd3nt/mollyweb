@@ -25,14 +25,16 @@ sudo mkdir /etc/thelounge;
 echo ***move necesary files from temp thelounge directory to program directory***;
 sudo cp -r thelounge/* /etc/thelounge/;
 if [ -f "/usr/bin/yum" ]; then
-	echo ***convert thelounge .deb to .rpm for CentOS***;
+    echo ***convert thelounge .deb to .rpm for CentOS***;
     sudo alien -r thelounge_4.1.0_all.deb
     echo ***install thelounge .rpm***;
     sudo rpm -i thelounge_4.1.0_all.noarch.rpm
 fi
 if [ -f "/usr/bin/apt" ]; then
-	echo ***install thelounge for Debian***;
+    echo ***install thelounge for Debian***;
     sudo dpkg -i thelounge_4.1.0_all.deb
+    echo ***resolving thelounge dependencies.***;
+    sudo apt -f install -y;
 fi
 echo ***move temp directory to site directory***;
 sudo cp -r ./* /var/www/html/;
