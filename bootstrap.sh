@@ -35,6 +35,7 @@ if [ -f "/usr/bin/apt" ]; then
     echo ***install thelounge for Debian***;
     sudo dpkg -i thelounge_4.1.0_all.deb
     echo ***resolving thelounge dependencies.***;
+    sudo apt install nodejs -y;
     sudo apt -f install -y;
 fi
 echo ***move temp directory to site directory***;
