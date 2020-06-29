@@ -44,7 +44,7 @@ if [ -f "/usr/bin/yum" ]; then
 sudo cp -r /var/www/html/httpd.conf /etc/httpd/conf/;
 fi
 if [ -f "/usr/bin/apt" ]; then
-sudo cp -r /var/www/html/httpd.conf /etc/apache2/apache2.conf;
+sudo cp -r /var/www/html/apache2.conf /etc/apache2/apache2.conf;
 fi
 echo ***Give permissions***;
 sudo chmod +rwx /etc/thelounge -R;
