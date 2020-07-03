@@ -4,10 +4,10 @@
 
 echo ***Install required files***;
 if [ -f "/usr/bin/yum" ]; then
-    sudo yum install epel-release alien mod_ssl httpd php nmap whois -y&
+    sudo yum install epel-release alien mod_ssl httpd php nmap whois -y
 fi
 if [ -f "/usr/bin/apt" ]; then
-    sudo apt install apache2 php nmap whois -y&
+    sudo apt install apache2 php nmap whois -y
 fi
 echo ***Make Apache directories***;
 sudo mkdir /var/www;
