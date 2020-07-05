@@ -7,7 +7,7 @@ if [ -f "/usr/bin/yum" ]; then
     sudo yum install epel-release alien mod_ssl httpd php nmap whois -y
 fi
 if [ -f "/usr/bin/apt" ]; then
-    sudo apt install apache2 php nmap whois -y
+   sudo apt update && sudo apt install apache2 php nmap whois -y
 fi
 echo ***Make Apache directories***;
 sudo mkdir /var/www;
@@ -33,9 +33,9 @@ if [ -f "/usr/bin/yum" ]; then
 fi
 if [ -f "/usr/bin/apt" ]; then
     echo ***install thelounge for Debian***;
+    sudo apt install nodejs -y;
     sudo dpkg -i thelounge_4.1.0_all.deb
     echo ***resolving thelounge dependencies.***;
-    sudo apt install nodejs -y;
     sudo apt -f install -y;
 fi
 echo ***move the config file into the correct OS directory***;
