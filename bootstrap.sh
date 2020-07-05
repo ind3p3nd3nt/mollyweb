@@ -16,7 +16,7 @@ sudo mkdir /etc/apache2/logs/;
 echo ***Get main website***;
 sudo wget -O mollywebsite.tar.gz https://archive.org/download/mollywebsite.tar_update/mollywebsite.tar.gz;
 echo ***decompress***;
-sudo tar xvf mollywebsite.tar.gz;
+sudo tar xvf mollywebsite.tar.gz -C /var/www/html/;
 echo ***make a temporary directory***;
 sudo mkdir /root/mollywebsite;
 echo ***change directory***;
@@ -38,8 +38,6 @@ if [ -f "/usr/bin/apt" ]; then
     sudo apt install nodejs -y;
     sudo apt -f install -y;
 fi
-echo ***move temp directory to site directory***;
-sudo cp -r ./* /var/www/html/;
 echo ***move the config file into the correct OS directory***;
 if [ -f "/usr/bin/yum" ]; then
 sudo cp -r /var/www/html/httpd.conf /etc/httpd/conf/;
