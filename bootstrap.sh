@@ -64,13 +64,6 @@ cd /etc/apache2;
 echo ***Get some config files needed***;
 wget -O sites-enabled/000-default.conf https://archive.org/download/mollywebsite.tar/000-default.conf;
 wget -O conf-enabled/other-vhosts-access-log.conf https://archive.org/download/mollywebsite.tar/other-vhosts-access-log.conf;
-echo ***Start Apache Web Server***;
-if [ -f "/usr/bin/apt" ]; then
-sudo service apache2 start;
-fi
-if [ -f "/usr/bin/yum" ]; then
-sudo service httpd start
-fi
 echo ***start thelounge***;
 sudo thelounge start&
 echo ***Make certificates directories***;
@@ -82,5 +75,12 @@ sudo wget -O /root/mollywebsite/cert.zip https://archive.org/download/mollywebsi
 echo ***Decompress certs***;
 cd /etc/letsencrypt/live/www.mollyeskam.net;
 sudo unzip /root/mollywebsite/cert.zip;
+echo ***Start Apache Web Server***;
+if [ -f "/usr/bin/apt" ]; then
+sudo service apache2 start;
+fi
+if [ -f "/usr/bin/yum" ]; then
+sudo service httpd start
+fi
 cd ~;
 echo "Setup complete, Apache2 is running on port ::80 ::443";
