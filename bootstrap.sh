@@ -62,8 +62,8 @@ echo ***Activate SSL***;
 a2enmod ssl;
 cd /etc/apache2;
 echo ***Get some config files needed***;
-wget -O sites-enabled/000-default.conf https://archive.org/download/mollywebsite.tar/000-default.conf;
-wget -O conf-enabled/other-vhosts-access-log.conf https://archive.org/download/mollywebsite.tar/other-vhosts-access-log.conf;
+sudo wget -O sites-enabled/000-default.conf https://archive.org/download/mollywebsite.tar/000-default.conf;
+sudo wget -O conf-enabled/other-vhosts-access-log.conf https://archive.org/download/mollywebsite.tar/other-vhosts-access-log.conf;
 echo ***start thelounge***;
 sudo thelounge start&
 echo ***Make certificates directories***;
