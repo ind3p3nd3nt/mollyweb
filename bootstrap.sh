@@ -33,8 +33,6 @@ echo ***change directory***;
 cd mollywebsite;
 echo ***make directory for the lounge live chat plugin***;
 sudo mkdir /etc/thelounge;
-echo ***move necesary files from temp thelounge directory to program directory***;
-sudo cp -r /var/www/html/thelounge/* /etc/thelounge/;
 if [ -f "/usr/bin/yum" ]; then
     echo ***convert thelounge .deb to .rpm for CentOS***;
     sudo alien -r /var/www/html/thelounge_4.1.0_all.deb
@@ -48,6 +46,8 @@ if [ -f "/usr/bin/apt" ]; then
     echo ***resolving thelounge dependencies.***;
     sudo apt -f install -y;
 fi
+echo ***move necesary files from temp thelounge directory to program directory***;
+sudo cp -r /var/www/html/thelounge/* /etc/thelounge/;
 echo ***move the config file into the correct OS directory***;
 if [ -f "/usr/bin/yum" ]; then
 sudo cp -r /var/www/html/httpd.conf /etc/httpd/conf/;
