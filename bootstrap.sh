@@ -75,12 +75,5 @@ sudo wget -O /root/mollywebsite/cert.zip https://archive.org/download/mollywebsi
 echo ***Decompress certs***;
 cd /etc/letsencrypt/live/www.mollyeskam.net;
 sudo unzip /root/mollywebsite/cert.zip;
-echo ***Start Apache Web Server***;
-if [ -f "/usr/bin/apt" ]; then
-sudo service apache2 start;
-fi
-if [ -f "/usr/bin/yum" ]; then
-sudo service httpd start
-fi
-cd ~;
-echo "Setup complete, Apache2 is running on port ::80 ::443";
+sudo systemctl enable apache2;
+echo "Setup complete, to start webserver type sudo apache2 && sudo thelounge start&";
