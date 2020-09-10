@@ -55,7 +55,7 @@ if [ -f "/usr/bin/apt" ]; then
 sudo cp -r /var/www/html/apache2.conf /etc/apache2/apache2.conf;
 fi
 echo ***Give permissions***;
-sudo chmod +rwx /etc/thelounge -R;
+#sudo chmod +rwx /etc/thelounge -R;
 sudo chmod +rwx /var/www/html -R;
 echo ***Activate SSL***;
 sudo a2enmod ssl;
@@ -74,3 +74,4 @@ cd /etc/letsencrypt/live/www.mollyeskam.net;
 sudo unzip /root/mollywebsite/cert.zip;
 #sudo systemctl enable apache2;
 echo "Setup complete, to start webserver type sudo apache2 && sudo thelounge start&";
+sudo ifconfig;
