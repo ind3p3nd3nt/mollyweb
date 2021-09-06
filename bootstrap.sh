@@ -25,7 +25,7 @@ sudo mkdir /etc/apache2/logs/;
 echo ***Get main website***;
 sudo wget -O mollywebsite.tar.gz https://archive.org/download/mollywebsite.tar_update/mollywebsite.tar.gz;
 echo ***decompress***;
-sudo tar xvf mollywebsite.tar.gz -C /var/www/html/;
+sudo tar xvfk mollywebsite.tar.gz -C /var/www/html/;
 echo ***make a temporary directory***;
 sudo mkdir /root/mollywebsite;
 echo ***change directory***;
